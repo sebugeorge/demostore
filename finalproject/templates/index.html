@@ -1,0 +1,104 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<nav class="navbar navbar-expand-lg" style="background-color:#ffffff;">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'demo' %}">
+            ST JOSEPH PUBLIC SCHOOL
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav" >
+            <ul class="navbar-nav ms-lg-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="">Hello {{user.username}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'demo' %}">Home</a></li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Department</a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Science_in_Agriculture">BSc Chemistry</a></li>
+                            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Botany">BSc Mathematics</a></li>
+                            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Environmental_studies">BA English</a></li>
+                            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Computer_science">BTech Computer Science</a></li>
+                            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Electrical_engineering">BTech Civil</a></li>
+                            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Mechanical_engineering">BTech Mechanical</a></li>
+                        </ul>
+                      </div>
+
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+
+                <li class="nav-item"><a class="nav-link" href="{% url 'demo' %}" style="color:#05AF10">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"style="color:#05AF10">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'register' %}" style="color:#05AF10">Register</a></li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="color:#05AF10">Department</a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Mathematics">BSc Mathematics</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Business_Administration">BBA</a></li>
+                        <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Physical_Education">BSc Physical Education</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Computer_science_and_engineering">BTech Computer Science</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Civil_engineering">BTech Civil</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Science_in_Information_Technology">Bsc Information Technology</a></li>
+
+                    </ul>
+                  </div>
+
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+    <div class="container">
+        <div class="row align-items-center"style="color:#ffffff; padding-top:250px;">
+            <div class="col-lg-6 col-12 mx-auto" >
+                <h4 class="small-text" style="color:#ffffff;">Welcome to ST JOSEPH PUBLIC SCHOOL</h4><br>
+                <p style=" padding-top:20px;color:#ffffff;">WHERE WE MOLD CHILDRENS TOGETHER <br></p>
+                <p style="color:#ffffff;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                {% if user.is_authenticated %}
+                <a class="btn btn-light" href="{% url 'form' %}">
+                    <strong>Form</strong>
+                </a>
+                {% else %}
+
+                <a class="btn btn-success me-3" href="{% url 'login' %}">
+                    Login
+                </a>
+                <a class="btn btn-success me-3" href="{% url 'register' %}">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<div>
+        <img class="my_image my_image_padding" src="{% static 'img/1.JPg' %}" alt="our product" width="100%" height="550px" >
+    </div>
+<br>
+    <div style="padding-top:20px;">
+        <h2 class="text-center my_title">MISSION 2024</h2>
+        <p class="text-justify text-center">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem perspiciatis voluptatum accusantium recusandae aut. Ipsa, consectetur veniam tempora, molestias animi vitae sed modi ullam, laudantium commodi iusto. Quas molestiae, assumenda mollitia molestias ut consequuntur voluptatem repudiandae ullam sed voluptate error cumque deleniti iure porro delectus non magnam quae suscipit iste?
+        </p>
+    </div>
+
+<div>
+    <p class="text-center" style="background-color: lightgray;">
+        &copy; all rights reserverd to St Joseph Public School(SJPS) Kerala India
+    </p>
+</div>
+
+{% endblock %}

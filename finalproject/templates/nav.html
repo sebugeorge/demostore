@@ -1,0 +1,40 @@
+{% load static %}
+{% block body %}
+
+<nav class="navbar" style="background-color:#ffffff;">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'demo' %}">
+            STUDENTS STORE
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <br>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-lg-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'demo' %}" style="color:#05AF10">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}" style="color:#05AF10">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'register' %}"style="color:#05AF10">Register</a></li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"style="color:#05AF10">Department</a>
+                  
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Mathematics" >BSc Mathematics</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Business_Administration" >BBA</a></li>
+                        <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Physical_Education" >BSc Physical Education</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Computer_science_and_engineering" >BTech Computer Science</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Civil_engineering" >BTech Civil</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Science_in_Information_Technology" >Bsc Information Technology</a></li>
+
+                    </ul>
+                  </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% endblock %}
